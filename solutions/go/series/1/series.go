@@ -1,0 +1,25 @@
+package series
+
+func All(n int, s string) []string {
+	if n > len(s) {
+		return nil
+	}
+
+	l := make([]string, 0, len(s)-n+1)
+	for i := 0; i+n <= len(s); i++ {
+		l = append(l, s[i:i+n])
+	}
+
+	return l
+}
+
+func UnsafeFirst(n int, s string) string {
+	return s[:n]
+}
+
+func First(n int, s string) (string, bool) {
+	if n > len(s) {
+		return "", false
+	}
+	return s[:n], true
+}
